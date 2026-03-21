@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    // Nơi đặt code TS và nơi build ra JS
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Biên dịch sang phiên bản JS hiện đại
+    "target": "ES2020",
+    // Kiểu module: Node.js dùng "CommonJS", frontend (Vite/Next) dùng "ESNext"
+    "module": "commonjs",
+
+    // Kiểm tra type chặt chẽ (khuyến nghị bật)
+    "strict": true,
+
+    // Cho phép import/export kiểu ES (import defautl)
+    "esModuleInterop": true,
+
+    // Bỏ qua check type trong node_modules (build nhanh hơn, đỡ lỗi linh tinh)
+    "skipLibCheck": true,
+
+    // Bắt buộc thống nhất tên file (tránh lỗi khi deploy linux)
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
