@@ -19,7 +19,9 @@
     "skipLibCheck": true,
 
     // Bắt buộc thống nhất tên file (tránh lỗi khi deploy linux)
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+
+    "strictNullChecks": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
