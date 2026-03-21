@@ -5,3 +5,10 @@
 - @types/node: giúp TypeScript hiểu các hàm Node js (như console, process).
 
 ### Bài 2: Kiểu dữ liệu cơ bản trong TypeScript
+
+#### Boolean là gì ?
+
+- Boolean là kiểu dữ liệu cơ bản trong TypeScript(và JavaScript), chỉ nhận hai giá trị
+  hoặc false
+
+- Dùng để biểu diễn trạng thái logic (đúng/sai) trong lập trình.
