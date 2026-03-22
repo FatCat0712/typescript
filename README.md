@@ -175,3 +175,67 @@ function handleData(data: unknown) {
 #### Literal Types
 
 **Khái niệm**: giới hạn giá trị cụ thể (VD: chuỗi, số cố định)
+
+### Bài 5: Type alias vs Interface trong TypeScript
+
+**Type Alias**(từ khoá type): là cách đặt tên mới cho một loại dữ
+liệu bất kỳ(primitive, object, union, ...). Nó như "bí danh"(alias) cho
+type, không tạo type mới mà chỉ tham chiếu.
+
+**Ví dụ**
+
+```ts
+type Point = {
+  x: number;
+  y: number;
+};
+```
+
+**Chức năng**
+
+- Định nghĩa primitive, union, intersection, tuple, mapped types, conditional types.
+- Kếp hợp với intersection (&) để "kế thừa".
+- Sử dụng generics cho reusable types.
+- Định nghĩa function types, recursive types.
+- Implement bởi class (nếu là object type).
+
+**Sự khác biệt với Interface**:
+
+- Type Alias có thể là union/tuple(Interface không thể)
+- Dùng & thay vì extends (Interface dùng extends nhanh hơn).
+
+**Interface**: là cách định nghĩa cấu trúc của object hoặc class, giống
+như "hợp đồng" mà code phải tuân thủ. chỉ dùng cho object shapes.
+
+**Khai báo**
+interface Tên {...}
+
+**Chức năng**
+
+- Định nghĩa object shapes, function types(call signatures)
+- Kế thừa với extends (có thể nhiều interface).
+- Hỗ trợ declaration merging (merge tự động nếu trùng tên).
+- Sử dụng generics.
+- Implement bởi class.
+- Thêm optional/readonly properties, index signatures.
+
+**Lưu ý**:
+
+- Không định nghĩa primitive, union, tuple trực tiếp (phải mix với type)
+- Không hỗ trợ mapped/conditional types trực tiếp.
+- Không thể là non-object types(chỉ object).
+
+**Sự khác biệt cơ bản**: Type Alias linh hoạt hơn (hỗ trợ nhiều loại type),
+Interface dễ mở rộng hơn (hỗ trợ merging and extends).
+
+#### Bảng so sánh Type Alias vs Interface
+
+| Tiêu Chí                   | Type Alias (type)                           | Interface (interface)      | Sự Khác Biệt Và Khi Nào Sử Dụng                                             |
+| -------------------------- | ------------------------------------------- | -------------------------- | --------------------------------------------------------------------------- |
+| Định nghĩa primitive/union | Có thể (e.g., `type ID = string \| number`) | Không thể trực tiếp        | Type Alias nếu cần linh hoạt (e.g., ID đa dạng); Interface nếu chỉ object.  |
+| Kế thừa                    | Dùng `&` (intersection)                     | Dùng `extends` (nhanh hơn) | Interface cho dự án lớn cần mở rộng nhanh; Type Alias cho kết hợp phức tạp. |
+| Merging                    | Không (lỗi trùng tên)                       | Có (tự merge)              | Interface cho libs/third-party; Type Alias cho code đơn giản.               |
+| Mapped/Conditional         | Có (ví dụ: mapped/conditional types)        | Không trực tiếp            | Type Alias cho advanced types (e.g., utility types).                        |
+| Tuple                      | Có (e.g., `[number, number]`)               | Không                      | Type Alias cho dữ liệu có thứ tự cố định (e.g., mảng tọa độ).               |
+| Error Messages             | Có thể dài (expand thành full type)         | Ngắn gọn (giữ tên)         | Interface cho trải nghiệm dev tốt hơn.                                      |
+| Hiệu suất                  | Tốt, nhưng có thể chậm với `&` lớn          | Tốt hơn với `extends`      | Interface cho app lớn.                                                      |
