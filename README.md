@@ -143,3 +143,21 @@ function handleData(data: unknown) {
 - **Type inference**: Dùng khi kiểu rõ ràng, giảm code thừa
 - **Type Annotation**: Dùng khi cần kiểm soát chặt chẽ hoặc TypeScript không thể suy ra
 - **Cân bằng**: Inference cho code đơn giản, annotation cho logic phức tạp hoặc khi cần rõ ràng. Điều này giúp code vừa ngắn gọn, vừa an toàn, dễ bảo trì!
+
+### Object, Array, Tuple, Enum trong TypeScript
+
+#### Object
+
+- **Khái niệm**: Lưu trữ dữ liệu dạng cặp key-value, dùng để mô tả dữ liệu phức tạp, như một Task trong Dashboard App
+
+#### Array
+
+- Array dùng để quản lý danh sách, như danh sách Task trong dự án.
+
+#### Tuple
+
+- Tuple là mảng cố định, rất phù để xử lý phản hồi API.
+
+#### Enum
+
+- Enum giúp quản lý trạng thái cố định, như trạng thái Task.
