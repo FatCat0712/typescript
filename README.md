@@ -144,7 +144,7 @@ function handleData(data: unknown) {
 - **Type Annotation**: Dùng khi cần kiểm soát chặt chẽ hoặc TypeScript không thể suy ra
 - **Cân bằng**: Inference cho code đơn giản, annotation cho logic phức tạp hoặc khi cần rõ ràng. Điều này giúp code vừa ngắn gọn, vừa an toàn, dễ bảo trì!
 
-### Object, Array, Tuple, Enum trong TypeScript
+### Bài 3: Object, Array, Tuple, Enum trong TypeScript
 
 #### Object
 
@@ -161,3 +161,17 @@ function handleData(data: unknown) {
 #### Enum
 
 - Enum giúp quản lý trạng thái cố định, như trạng thái Task.
+
+### Bài 4: Union, Intersection, Literal Types trong TypesScript
+
+#### Union Types
+
+**Khái niệm**: cho phép một biến thuộc nhiều kiểu
+
+#### Intersection Types
+
+**Khái niệm**: kết hợp nhiều type thành một
+
+#### Literal Types
+
+**Khái niệm**: giới hạn giá trị cụ thể (VD: chuỗi, số cố định)
