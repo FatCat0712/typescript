@@ -61,4 +61,4 @@ function combineDemo(a: string | number, b: string | number): string | number {
 
 console.log(combineDemo("Hello,", "world!")); // Hello, world!
 console.log(combineDemo(5, 10)); // 15
-console.log(combineDemo("Hello", 5)); // Error: Invalid types
+// console.log(combineDemo("Hello", 5)); // Error: Invalid types

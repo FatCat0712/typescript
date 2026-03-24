@@ -259,3 +259,37 @@ Interface dễ mở rộng hơn (hỗ trợ merging and extends).
 - **Void**: hàm không trả về gì
 - **Never**: hàm không bao giờ hoàn thành(ném lỗi hoặc vòng lặp vô hạn)
 - **Function overloading**: định nghĩa nhiều chữ ký hàm cho cùng một hàm.
+
+### Bài 7 : Generics là gì và tại sao cần nó
+
+**Generics**: là cơ chế cho phép định nghĩa hàm, interface hoặc class với kiểu dữ
+liệu "tổng quát" (generic type), được biểu diễn bằng placeholder như <T> (T là convention,
+có thể dùng chữ cái khác như <U>, <K>). Kiểu cụ thể sẽ được chỉ định khi sử dụng, giúp
+code hoạt động với nhiều kiểu dữ liệu mà vẫn kiểm tra kiểu tại compile-time.
+
+**Lợi ích chính**:
+
+- **Tái sử dụng**: Một hàm/interface dùng cho string, number, object mà không
+  cần viết nhiều phiên bản.
+- **An toàn kiểu**: Tránh lỗi runtime bằng cách TypeScript kiểm tra kiểu trước
+  (ví dụ: không cho phép gọi phương thức string trên number).
+- **Linh hoạt**: Hỗ trợ ràng buộc (constraints) để giới hạn kiểu (ví dụ: chỉ kiểu
+  có thuộc tính length).
+
+**Tại sao <T> được đặt sau têm hàm và trước (**
+Vị trí của <T> là một quy ước cú pháp trong TypeScript (và các ngôn ngữ hỗ trợ generics như
+Java, C#) cụ thể:
+
+- **Sau tên hàm (indentity<T>)**:
+- Điều này cho biết hàm identity là một **generic function**, và T là tham số kiểu mà
+  hàm sẽ sử dụng.
+- TypeScript cần biết trước rằng hàm này có thể làm việc với bất kỳ kiểu dữ liệu nào, và
+  T là placeholder cho kiểu đó.
+- **Trước danh sách tham số (**:
+- Sau khi khai báo T, bạn có thể sử dụng T trong phần định nghĩa tham số (arg: T)
+  và kiểu trả về(:T).
+- Vị trí này giúp TypeScript hiểu rằng T được sử dụng trong phạm vi của hàm, bao gồm cả
+  tham số và giá trị trả về.
+
+Cú pháp này giúp trình biên dịch TypeScript biết rằng hàm identity là generic và cần được xử
+lý với một kiểu cụ thể khi gọi.
