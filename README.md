@@ -156,7 +156,7 @@ function handleData(data: unknown) {
 
 #### Tuple
 
-- Tuple là mảng cố định, rất phù để xử lý phản hồi API.
+- Tuple là mảng cố định, rất phù hợp để xử lý phản hồi API.
 
 #### Enum
 
@@ -181,6 +181,9 @@ function handleData(data: unknown) {
 **Type Alias**(từ khoá type): là cách đặt tên mới cho một loại dữ
 liệu bất kỳ(primitive, object, union, ...). Nó như "bí danh"(alias) cho
 type, không tạo type mới mà chỉ tham chiếu.
+
+**Khai báo**
+type tên=...;
 
 **Ví dụ**
 
@@ -221,7 +224,7 @@ interface Tên {...}
 
 **Lưu ý**:
 
-- Không định nghĩa primitive, union, tuple trực tiếp (phải mix với type)
+- Không định nghĩa union, tuple trực tiếp (phải mix với type)
 - Không hỗ trợ mapped/conditional types trực tiếp.
 - Không thể là non-object types(chỉ object).
 
@@ -239,3 +242,5 @@ Interface dễ mở rộng hơn (hỗ trợ merging and extends).
 | Tuple                      | Có (e.g., `[number, number]`)               | Không                      | Type Alias cho dữ liệu có thứ tự cố định (e.g., mảng tọa độ).               |
 | Error Messages             | Có thể dài (expand thành full type)         | Ngắn gọn (giữ tên)         | Interface cho trải nghiệm dev tốt hơn.                                      |
 | Hiệu suất                  | Tốt, nhưng có thể chậm với `&` lớn          | Tốt hơn với `extends`      | Interface cho app lớn.                                                      |
+
+
