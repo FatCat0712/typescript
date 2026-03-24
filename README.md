@@ -243,4 +243,19 @@ Interface dễ mở rộng hơn (hỗ trợ merging and extends).
 | Error Messages             | Có thể dài (expand thành full type)         | Ngắn gọn (giữ tên)         | Interface cho trải nghiệm dev tốt hơn.                                      |
 | Hiệu suất                  | Tốt, nhưng có thể chậm với `&` lớn          | Tốt hơn với `extends`      | Interface cho app lớn.                                                      |
 
+### Bài 6: Function typing trong TypeScript
 
+#### Phần 1
+
+- 1: function cơ bản
+- 2: tham số mặc định (default value)
+- 3: tham số tuỳ chọn (optional param)
+
+#### Phần 2
+
+- Nâng cao: Union Types, Void, Never, và Function Overloading
+
+- **Union types**: tham số hoặc return có thể thuộc nhiều kiểu.
+- **Void**: hàm không trả về gì
+- **Never**: hàm không bao giờ hoàn thành(ném lỗi hoặc vòng lặp vô hạn)
+- **Function overloading**: định nghĩa nhiều chữ ký hàm cho cùng một hàm.
