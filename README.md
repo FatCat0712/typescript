@@ -293,3 +293,20 @@ Java, C#) cụ thể:
 
 Cú pháp này giúp trình biên dịch TypeScript biết rằng hàm identity là generic và cần được xử
 lý với một kiểu cụ thể khi gọi.
+
+**Bản chất của string trong JavaScript/TypeScript**
+
+- **string là kiểu nguyên thuỷ (primitive type)**
+- Trong JavaScript, string là một trong những kiểu nguyên thuỷ(primitive types), bao gồm string, number,
+  boolean, null, undefined, bigint và symbol.
+- Một giá trị string (như "hello") là **immutable** (không thể thay đổi) và không phải là một object
+  theo nghĩa thông thường.
+
+- **Tại sao string có thể truy cập thuộc tính length?**
+- Mặc dù string là một kiểu nguyên thuỷ, nhưng JavaScript có cơ chế Autoboxing (tự động bao bọc),
+  cho phép các giá trị nguyên thuỷ như string tạm thời được "bao bọc" trong một **String object** khi bạn
+  truy câp các thuộc tính hoặc phương thức của nó.
+- Khi bạn viết str.length hoặc gọi các phương thức str.toUpperCase(), JavaScript tự động chuyển đổi giá
+  trị string nguyên thuỷ thành một **String object** tạm thời.
+- String object là một wrapper object được tạo từ constructor String trong JavaScript, có các thuộc tính
+  và phương thức như length, toUpperCase(), substring(), ...
