@@ -334,3 +334,21 @@ lý với một kiểu cụ thể khi gọi.
   - **Extract<T,U>**: lấy các kiểu trong T có trong U (dùng với union types).
   - **Record<K,T>**: tạo type với key là K và value là type T.
   - **Require<T>**: biến tất cả các thuộc tính của T thành bắt buộc (ngược lại với Partial).
+
+**Hiểu và sử dụng Type Assertions (as)**
+
+- Type Assertions (as) là cách nói với TypeScript: "Tôi biết biến này thuộc kiểu
+  cụ thể, hãy tin tôi!". Nó không thay đổi giá trị runtime, chỉ ảnh hưởng đến compile-time.
+- Cú pháp: variable as Type hoặc <Type> variable(ít dùng hơn)
+- Khi nào dùng? Khi TypeScript không thể suy luận kiểu chính xác(ví dụ: any, DOM elements, API Response).
+- "Hãy cẩn thận: as là con dao hai lưỡi - nếu ép kiểu sai, bạn có thể gặp lỗi
+  runtime!"
+
+**Lưu ý**
+
+- Chỉ dùng as khi chắc chắn về kiểu (ví dụ: biết DOM element là <input>)
+- Tránh lạm dụng as any - đây là anti-pattern, làm mất lợi ích của TypeScript
+- Dùng type guards (như if hoặc instance of) để an toàn hơn(sẽ đề cập ở nâng cao).
+
+
+
