@@ -37,20 +37,40 @@
 // console.log(strPrimitive.length); // 5 (autoboxing)
 // console.log(strObject.length); // 5 (truy cập trực tiếp trên object)
 
-interface StringBox {
-  content: string;
+// interface StringBox {
+//   content: string;
+// }
+
+// interface NumberBox {
+//   content: number;
+// }
+
+// interface Box<T> {
+//   value: T;
+// }
+
+// let numBox: Box<number> = { value: 42 };
+// let strBox: Box<string> = { value: "Hello" };
+
+// console.log(numBox.value);
+// console.log(strBox.value);
+
+interface Pair<K, V> {
+  key: K;
+  value: V;
 }
 
-interface NumberBox {
-  content: number;
+let test: Pair<string, number> = {
+  key: "hello",
+  value: 30,
+};
+
+function createPair<K, V>(key: K, value: V): Pair<K, V> {
+  return { key, value };
 }
 
-interface Box<T> {
-  value: T;
-}
+const pair1 = createPair<string, number>("age", 30);
+const pair2 = createPair<number, boolean>(42, true);
 
-let numBox: Box<number> = { value: 42 };
-let strBox: Box<string> = { value: "Hello" };
-
-console.log(numBox.value);
-console.log(strBox.value);
+console.log(pair1);
+console.log(pair2);
