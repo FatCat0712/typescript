@@ -1,3 +1,4 @@
+// generic function
 // function identity<T>(arg: T): T {
 //   return arg;
 // }
@@ -37,6 +38,7 @@
 // console.log(strPrimitive.length); // 5 (autoboxing)
 // console.log(strObject.length); // 5 (truy cập trực tiếp trên object)
 
+// generic interface
 // interface StringBox {
 //   content: string;
 // }
@@ -65,6 +67,7 @@
 //   value: 30,
 // };
 
+// generic function with constraints
 // function createPair<K, V>(key: K, value: V): Pair<K, V> {
 //   return { key, value };
 // }
@@ -75,16 +78,24 @@
 // console.log(pair1);
 // console.log(pair2);
 
-interface Container<T extends { id: number }> {
-  item: T;
-  getId(): number;
+// generic interface with constraints
+// interface Container<T extends { id: number }> {
+//   item: T;
+//   getId(): number;
+// }
+
+// const userContainer: Container<{ id: number; name: string }> = {
+//   item: { id: 1, name: "Alice" },
+//   getId() {
+//     return this.item.id;
+//   },
+// };
+
+// console.log(userContainer.getId());
+
+interface Box<T = string> {
+  content: T;
 }
 
-const userContainer: Container<{ id: number; name: string }> = {
-  item: { id: 1, name: "Alice" },
-  getId() {
-    return this.item.id;
-  },
-};
-
-console.log(userContainer.getId());
+const defaultBox: Box = { content: "Hello" }; // T mặc định là string
+const numberBox: Box<number> = { content: 42 }; // T được chỉ định là number
