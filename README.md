@@ -350,8 +350,44 @@ lý với một kiểu cụ thể khi gọi.
 - Tránh lạm dụng as any - đây là anti-pattern, làm mất lợi ích của TypeScript
 - Dùng type guards (như if hoặc instance of) để an toàn hơn(sẽ đề cập ở nâng cao).
 
-### Tổng kết
+**Tổng kết**
 
 - as chỉ tồn tại ở compile-time, không thay đổi giá trị ở runtime.
 - Dùng as khi bạn chắc chắn về kiểu.
 - Với case phức tạp -> ưu tiên type guard, generics hơn là ép kiểu cứng.
+
+### Synthetic Event trong React
+
+- Là một **đối tượng sự kiện (event object) do React tạo ra**, dùng **để bao bọc (wrap)** các sự kiện gốc của trình duyệt (native event). Nó hoạt động như một lớp trung gian giúp:
+- **Tương thích đa trình duyệt(cross-browser compatibility)**: Các API sự kiện của trình duyệt đôi khi khác nhau(Chrome, Firefox, IE, ...). React chuẩn hoá chúng lại
+  thành một chuẩn thống nhất.
+- **Hiệu năng cao**: React sử dụng event delegation (uỷ quyền sự kiện) và event pooling (tái sử dụng đối tượng sự kiện) để giảm số lượng event listener và tối ưu bộ nhớ.
+- **API nhất quán** : Bạn thao tác với sự kiện trong React luôn giống nhau, không cần
+  quan tâm trình duyệt nào.
+
+**Ví dụ**
+
+```tsx
+function MyButton() {
+  function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+    console.log("SyntheticEvent:", e); // Đối tượng SyntheticEvent
+    console.log("NativeEvent:", e.nativeEvent); // Đối tượng sự kiện gốc của trình duyệt
+  }
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+```
+
+**Các loại SyntheticEvent:**
+React có nhiều loại sự kiện con, ví dụ:
+
+- React.MouseEvent
+- React.KeyboardEvent
+- React.ChangeEvent
+- React.FormEvent
+- React.FocusEvent
+
+... tất cả đều mở gộng từ **SyntheticEvent**.
+
+**Tóm lại**:
+**SyntheticEven** là "bản chuẩn hoá" của các sự kiện DOM trong React, đảm bảo bạn viết code sự kiện nhất quán, không cần quan tâm đến sự khác biệt trình duyệt.

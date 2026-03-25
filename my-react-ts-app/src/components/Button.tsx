@@ -14,11 +14,15 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-const Button = ({ variant = "primary", children, onClick }: ButtonProps) => {
+const Button = ({ variant = "primary", children }: ButtonProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log("Button clicked!", e.currentTarget);
+  };
+
   return (
     <button
       className={`px-4 py-2 rounded ${VARIANT_CLASS[variant]}`}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {children}
     </button>
