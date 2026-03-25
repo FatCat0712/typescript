@@ -310,3 +310,16 @@ lý với một kiểu cụ thể khi gọi.
   trị string nguyên thuỷ thành một **String object** tạm thời.
 - String object là một wrapper object được tạo từ constructor String trong JavaScript, có các thuộc tính
   và phương thức như length, toUpperCase(), substring(), ...
+
+### Bài 8: Generi interface trong TypeScript
+
+### Bài 9: Partial trong TypeScript
+
+- Partial<T> là một **Utility Type** trong TypeScript, biến tất cả các thuộc tính của type T thành
+  **tuỳ chọn (optional)**
+- Cú pháp: Partial<T> tạo một type mới, nơi mọi thuộc tính của T có thể là undefined
+- Ứng dụng: khi bạn chỉ cần cung cấp một phần dữ liệu của interface, ví dụL update một phần thông tin user.
+- "Hãy nghĩ về Partial như cách nói với TypeScript: 'Tôi không cần điền hết tất cả các trường, chỉ một vài trường
+  là đủ!"
+
+
