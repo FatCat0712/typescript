@@ -55,22 +55,36 @@
 // console.log(numBox.value);
 // console.log(strBox.value);
 
-interface Pair<K, V> {
-  key: K;
-  value: V;
+// interface Pair<K, V> {
+//   key: K;
+//   value: V;
+// }
+
+// let test: Pair<string, number> = {
+//   key: "hello",
+//   value: 30,
+// };
+
+// function createPair<K, V>(key: K, value: V): Pair<K, V> {
+//   return { key, value };
+// }
+
+// const pair1 = createPair<string, number>("age", 30);
+// const pair2 = createPair<number, boolean>(42, true);
+
+// console.log(pair1);
+// console.log(pair2);
+
+interface Container<T extends { id: number }> {
+  item: T;
+  getId(): number;
 }
 
-let test: Pair<string, number> = {
-  key: "hello",
-  value: 30,
+const userContainer: Container<{ id: number; name: string }> = {
+  item: { id: 1, name: "Alice" },
+  getId() {
+    return this.item.id;
+  },
 };
 
-function createPair<K, V>(key: K, value: V): Pair<K, V> {
-  return { key, value };
-}
-
-const pair1 = createPair<string, number>("age", 30);
-const pair2 = createPair<number, boolean>(42, true);
-
-console.log(pair1);
-console.log(pair2);
+console.log(userContainer.getId());
