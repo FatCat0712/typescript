@@ -350,5 +350,8 @@ lý với một kiểu cụ thể khi gọi.
 - Tránh lạm dụng as any - đây là anti-pattern, làm mất lợi ích của TypeScript
 - Dùng type guards (như if hoặc instance of) để an toàn hơn(sẽ đề cập ở nâng cao).
 
+### Tổng kết
 
-
+- as chỉ tồn tại ở compile-time, không thay đổi giá trị ở runtime.
+- Dùng as khi bạn chắc chắn về kiểu.
+- Với case phức tạp -> ưu tiên type guard, generics hơn là ép kiểu cứng.
