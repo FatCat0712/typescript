@@ -322,4 +322,15 @@ lý với một kiểu cụ thể khi gọi.
 - "Hãy nghĩ về Partial như cách nói với TypeScript: 'Tôi không cần điền hết tất cả các trường, chỉ một vài trường
   là đủ!"
 
+### Bài 10: Tổ hợp Utility Types trong TypeScript
 
+**Hiểu và sử dụng các Utility Types**
+
+- TypeScript cung cấp các **Utility Types** để biến đổi types/interfaces một cách dễ dàng
+- Các Ultility Types hôm nay:
+  - **Pick<T,K>**: chọn một tập hợp thuộc tính từ type T.
+  - **Omit<T,K>**: loại bỏ một tập hợp thuộc tính từ type T.
+  - **Exclude<T,U>**: loại bỏ các kiểu trong T có U (dùng với union types).
+  - **Extract<T,U>**: lấy các kiểu trong T có trong U (dùng với union types).
+  - **Record<K,T>**: tạo type với key là K và value là type T.
+  - **Require<T>**: biến tất cả các thuộc tính của T thành bắt buộc (ngược lại với Partial).
