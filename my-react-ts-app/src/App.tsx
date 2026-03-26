@@ -5,7 +5,9 @@ import InputBox from "./components/InputBox";
 import InputFocus from "./components/InputFocus";
 import LoginForm from "./components/LoginForm";
 import SmartButton from "./components/SmartButton";
+import ThemeButton from "./components/ThemeButton";
 import Timer from "./components/Timer";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   const handleLog = () => {
@@ -27,7 +29,11 @@ function App() {
       {/* <LoginForm /> */}
       {/* <InputFocus /> */}
       {/* <Timer /> */}
-      <CounterReducer />
+      {/* <CounterReducer /> */}
+      <ThemeProvider>
+        <h2>React + TS Context Demo</h2>
+        <ThemeButton />
+      </ThemeProvider>
     </>
   );
 }
