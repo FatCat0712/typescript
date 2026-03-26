@@ -27,6 +27,8 @@ export type TaskAction =
     };
 
 export type TaskState = {
-  task: Task[];
+  tasks: Task[];
   users: User[];
 };
+
+export type TPage = "tasks" | "users";

@@ -6,18 +6,18 @@ import { TaskContext } from "./TaskContextObject.ts";
 function taskReducer(state: TaskState, action: TaskAction): TaskState {
   switch (action.type) {
     case "add":
-      return { ...state, task: [...state.task, action.payload] };
+      return { ...state, tasks: [...state.tasks, action.payload] };
     case "toggle":
       return {
         ...state,
-        task: state.task.map((t) =>
+        tasks: state.tasks.map((t) =>
           t.id === action.payload ? { ...t, done: !t.done } : t,
         ),
       };
     case "remove":
       return {
         ...state,
-        task: state.task.filter((t) => t.id !== action.payload),
+        tasks: state.tasks.filter((t) => t.id !== action.payload),
       };
     default:
       return state;
@@ -28,7 +28,7 @@ export function TaskProvider({ children }: { children: ReactNode }) {
   const [persistedState, persistState] = useLocalStorage<TaskState>(
     "dashboard-state",
     {
-      task: [
+      tasks: [
         {
           id: 1,
           title: "Learn TS",
