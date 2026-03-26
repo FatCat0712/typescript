@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useTasks } from "../hooks/useTasks";
 
 type Props = {
@@ -6,8 +7,16 @@ type Props = {
 
 const UserTable = ({ search }: Props) => {
   const {
-    state: { users, task },
+    state: { users },
   } = useTasks();
+
+  const filteredUsers = useMemo(() => {
+    if (!search) return users;
+    const lowerSearch = search.toLowerCase();
+    return users.filter((user) =>
+      user.name.toLowerCase().includes(lowerSearch),
+    );
+  }, [users, search]);
 
   return (
     <div className="overflow-x-auto bg-gray-800 rounded shadow">
@@ -21,8 +30,8 @@ const UserTable = ({ search }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {users.length > 0 ? (
-            users.map((user) => (
+          {filteredUsers.length > 0 ? (
+            filteredUsers.map((user) => (
               <tr key={user.id}>
                 <td className="px-4 py-2 border-b border-gray-700">
                   {user.id}
